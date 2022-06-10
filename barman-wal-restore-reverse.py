@@ -134,6 +134,8 @@ def get_wal(config, wal, wal_temp):
     assert(not os.path.isfile(wal_dst))
 
     os.rename(wal_temp[1], wal_dst)
+    os.close(wal_temp[0])
+
     print_err('Got %s' % wal)
 
 
